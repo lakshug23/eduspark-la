@@ -1,96 +1,179 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script defer src="/_vercel/insights/script.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
-    />
-    <title>Vercel HTML Starter</title>
-    <meta
-      name="description"
-      content="High-performance HTML based website template."
-    />
-  </head>
-  <body>
-    <h1>Vercel HTML Starter</h1>
-    <p>
-      This template is a simple, but powerful single
-      <code>index.html</code> file deployed to
-      <a href="https://vercel.com">Vercel</a>. When your site is deployed, all
-      static assets (like HTML, JavaScript, CSS, images, and more) are deployed
-      globally to every
-      <a href="https://vercel.com/docs/concepts/edge-network/overview"
-        >Vercel Edge Network</a
-      >
-      region.
-    </p>
-    <h2>Simple, privacy-friendly analytics</h2>
-    <p>
-      Want to understand your visitor traffic? Vercel Analytics gives you
-      first-party, privacy-friendly traffic analytics for your HTML site. This
-      template is already configured using the following script:
-    </p>
-    <pre><code>&lt;script defer src="/_vercel/insights/script.js"&gt;&lt;/script&gt;</code></pre>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/analytics">Vercel Analytics</a>.
-    </p>
-    <h2>Integrated with git</h2>
-    <p>
-      Deploying updates to your site is as simple as
-      <code>git push</code> thanks to Vercel's advanced
-      <a href="https://vercel.com/docs/concepts/git">Git Integration</a>.
-      Support for GitHub, GitLab, Bitbucket is zero-configuration, and with the
-      flexible Vercel CLI and API, you can integrate with any tool possible.
-    </p>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/git">Git Integration</a>.
-    </p>
-    <h2>Fast <code>gzip</code> compression</h2>
-    <p>
-      To help ensure the smallest possible file sizes for your static assets,
-      the Vercel Edge Network compresses files by default using
-      <code>gzip</code>. You can also optionally use
-      <code>brotli</code> compressesion if you prefer.
-    </p>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/edge-network/compression"
-        >compression</a
-      >.
-    </p>
-    <h2>Advanced routing configuration</h2>
-    <p>
-      Vercel gives you a variety of ways to configure the routing of your
-      website. For example, adding redirects, rewrites, or headers to your page.
-      While you can use <code>vercel.json</code> to define these through JSON,
-      you can also express your routing configuration as code using
-      <a href="https://vercel.com/docs/concepts/functions/edge-middleware"
-        >Vercel Edge Middleware</a
-      >.
-    </p>
-    <p>
-      Middleware runs before the
-      <a href="https://vercel.com/docs/concepts/edge-network/caching"
-        >Vercel Edge Network Cache</a
-      >, so you can configure routing exactly as your application needs. For
-      example, this template uses <code>middleware.js</code> defined in the root
-      of the repository to add additional security headers to the site:
-    </p>
-    <pre><code>referrer-policy: origin-when-cross-origin
-strict-transport-security: max-age=31536000; includeSubDomains; preload
-x-content-type-options: nosniff
-x-dns-prefetch-control: on
-x-frame-options: DENY</code></pre>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/functions/edge-middleware"
-        >Vercel Edge Middleware</a
-      >.
-    </p>
-  </body>
+<html>
+<head>
+  <title>Generate Educational Video</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #121212; /* Dark background */
+      color: #f0f0f0; /* Light text */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 3em;
+      font-weight: bold;
+      color: #00bcd4; /* Accent color */
+      margin-top: 2em;
+      margin-bottom: 1em;
+      text-align: center;
+    }
+
+    h2 {
+      color: #e0e0e0;
+      margin-bottom: 1.5em;
+      text-align: center;
+    }
+
+    #videoForm {
+      background-color: #1e1e1e; /* Darker form background */
+      padding: 2em;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      width: 80%;
+      max-width: 500px;
+      margin-bottom: 2em;
+      display: flex; /* Enable flexbox for centering */
+      flex-direction: column; /* Keep labels and inputs stacked */
+      align-items: center; /* Center the button horizontally */
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5em;
+      color: #ccc;
+      font-weight: bold;
+      width: 100%; /* Ensure labels take full width */
+      text-align: left; /* Align labels to the left */
+    }
+
+    input[type="text"] {
+      width: calc(100% - 22px);
+      padding: 0.8em;
+      margin-bottom: 1.5em;
+      border: 1px solid #333;
+      border-radius: 4px;
+      background-color: #222;
+      color: #f0f0f0;
+      box-sizing: border-box;
+    }
+
+    button[type="submit"] {
+      background-color: #00bcd4; /* Accent button color */
+      color: #fff;
+      padding: 1em 2em;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.3s ease;
+      width: fit-content; /* Make button width fit its content */
+    }
+
+    button[type="submit"]:hover {
+      background-color: #0097a7;
+    }
+
+    #status {
+      margin-top: 1.5em;
+      color: #a7ffeb; /* Success text color */
+      font-weight: bold;
+      text-align: center;
+    }
+
+    #domains {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1em;
+      margin-bottom: 1.5em;
+    }
+
+    .domain-option {
+      background-color: #333;
+      color: #eee;
+      padding: 0.8em 1.2em;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .domain-option:hover {
+      background-color: #555;
+    }
+
+    #eduspark-title {
+      font-size: 5em;
+      font-weight: 900;
+      color: #ffc107; /* Another accent color */
+      text-align: center;
+      margin-top: 1em;
+      margin-bottom: 0.5em;
+      letter-spacing: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div id="eduspark-title">EduSpark</div>
+  <h2>Generate Video with AI ✨</h2>
+
+  <div id="domains">
+    <div class="domain-option" onclick="setSubject('Visual Arts')">Visual Arts</div>
+    <div class="domain-option" onclick="setSubject('Performing Arts')">Performing Arts</div>
+    <div class="domain-option" onclick="setSubject('Coding')">Coding</div>
+    <div class="domain-option" onclick="setSubject('Financial Literacy')">Financial Literacy</div>
+    <div class="domain-option" onclick="setSubject('Science')">Science</div>
+  </div>
+
+  <form id="videoForm">
+    <label for="subject">Subject:</label>
+    <input type="text" id="subject" name="subject" required placeholder="e.g., Biology, Music Theory"><br><br>
+
+    <label for="topic">Topic:</label>
+    <input type="text" id="topic" name="topic" required placeholder="Enter your specific topic"><br><br>
+
+    <label for="phone">Phone (with country code):</label>
+    <input type="text" id="phone" name="phone" required><br><br>
+
+    <button type="submit">Generate Video</button>
+  </form>
+
+  <p id="status"></p>
+
+  <script>
+    function setSubject(domain) {
+      document.getElementById("subject").value = domain;
+    }
+
+    document.getElementById("videoForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const subject = document.getElementById("subject").value;
+      const topic = document.getElementById("topic").value;
+      const phone = document.getElementById("phone").value;
+
+      document.getElementById("status").innerText = "Generating video... ⏳";
+
+      const res = await fetch("/generate-video", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ subject, topic, phone })
+      });
+
+      const data = await res.json();
+
+      if (data.status === "success") {
+        document.getElementById("status").innerHTML =
+          `✅ Video generated! <a href="${data.video_url}" target="_blank" style="color: #00bcd4;">Watch it here</a>`;
+      } else {
+        document.getElementById("status").innerText = "❌ Something went wrong.";
+      }
+    });
+  </script>
+</body>
 </html>
